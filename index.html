@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Люся ❤️</title>
+<style>
+body {
+  margin: 0;
+  background: #171923;
+  color: white;
+  font-family: -apple-system, sans-serif;
+  text-align: center;
+}
+header { padding: 20px; font-size: 26px; }
+.avatar {
+  width: 85%;
+  max-width: 400px;
+  margin: 20px auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #303443;
+}
+.avatar img { width: 100%; display: block; }
+button {
+  padding: 16px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
+  background: #ec8eac;
+  font-size: 18px;
+}
+#message { padding: 15px; }
+</style>
+</head>
+<body>
+<header>❤️ Люся</header>
+<div class="avatar">
+  <img src="lucy.jpg" alt="Люся">
+</div>
+<h2>Привет! Я Люся ❤️</h2>
+<p id="message">Рада тебя видеть!</p>
+<button onclick="talk()">🔊 Поговори со мной</button>
+<script>
+function talk() {
+  const phrase = "Привет! Я Люся. Рада тебя видеть!";
+  document.getElementById("message").textContent = phrase;
+  speechSynthesis.cancel();
+  const voice = new SpeechSynthesisUtterance(phrase);
+  voice.lang = "ru-RU";
+  speechSynthesis.speak(voice);
+}
+</script>
+</body>
+</html>
